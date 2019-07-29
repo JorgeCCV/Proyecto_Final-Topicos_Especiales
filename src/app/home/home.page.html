@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-button slot ="end" fill="clear" (click)="presentActionSheet()">
+      <ion-icon style="color: red" name="menu">
+
+      </ion-icon>
+    </ion-button>
+    <ion-title>
+      IonChat
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding >
+    <ion-list>
+      <ion-item *ngFor="let chat of chatsRoom" (click)="abrirChat(chat)"> 
+        <ion-avatar slot="start">
+          <ion-img [src]="chat.img"></ion-img>
+        </ion-avatar>
+        <ion-label>
+          <h2><b>{{chat.name}}</b></h2>
+          <p>{{chat.description}}</p>
+        </ion-label>
+    </ion-item>
+
+      </ion-list>
+      
+ <!-- <ion-button (click)="onLogOut()" >Cerrar Sesión</ion-button> -->
+</ion-content>

@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-button slot="start" fill="clear" (click)="cerrarChat()">
+      <ion-icon style="color: blanchedalmond;font-size:25px" name ="arrow-round-back">
+
+      </ion-icon>
+    </ion-button>
+    <ion-title>{{chat.name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+
+<!--
+<ul *ngIf="salaChat"> 
+  <li *ngFor="let mensaje of salaChat.messages"></li>
+</ul>
+-->
+<div *ngIf="usuario">
+    <ion-card *ngFor="let nombre of usuario.name">
+    <ion-card-content>
+      {{nombre.name}}
+    </ion-card-content>
+    </ion-card>
+</div>
+
+
+
+<div *ngIf="salaChat">
+<ion-card *ngFor="let mensaje of salaChat.messages">
+<ion-card-content>
+  {{mensaje.content}}         {{mensaje.date}}
+  <ion-item>
+      <ion-label ></ion-label>
+      <ion-datetime display-format="MM/YYYY/DD" picker-format="MMMM YYYY DDDD" [(ngModel)]="mensaje.date" ></ion-datetime>
+    </ion-item>
+</ion-card-content>
+</ion-card>
+</div>
+
+</ion-content>
+
+<!-- Aqui se podra ingresar el texto-->
+
+<ion-footer padding>
+  <ion-item>
+    <ion-textarea [(ngModel)]="msg"></ion-textarea>
+    <ion-button color="success" (click)='enviarMensaje()'>
+      <ion-icon name="send"></ion-icon>
+    </ion-button>
+  </ion-item>
+</ion-footer>
